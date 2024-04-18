@@ -1,0 +1,85 @@
+<%- include('partials/header.ejs'); -%>
+<!-- add new book form -->
+<div class="form__box">
+  <h3><%= "Add new book" %></h3>
+
+<form action="/add" method="post">
+      <div class="form__input"> 
+        <div class="form__part1">
+        <input
+        class="add"
+        type="text"
+        name="isbn"
+        autocomplete="off"
+        placeholder="isbn"
+        autofocus="true"
+      />
+      <input
+      class="add"
+        type="text"
+        name="author"
+        autocomplete="on"
+        placeholder="author"
+        autofocus="false"
+      />
+      <input
+      class="add"
+        type="number"
+        step="0.1"
+        max="10"
+        name="rating"
+        autocomplete="off"
+        placeholder="rating (0 - 10)"
+        autofocus="false"
+      />
+      <input
+      class="add"
+        type="date"
+        name="read_on"
+        autocomplete="off"
+        placeholder="date read (yyyy-mm-dd)"
+        autofocus="false"
+      />
+      </div>
+      <div class="form__part2">
+      <input
+      class="add"
+        type="text"
+        name="title"
+        autocomplete="off"
+        placeholder="title"
+        autofocus="false"
+      />
+      <textarea
+      class="add"
+        name="descriptions"
+        autocomplete="off"
+        placeholder="descriptions"
+        autofocus="false"
+      ></textarea>
+      </div>
+      </div>
+      <!-- submit button -->
+      <button id="add-btn" class="btn add-btn" onclick="newBookHandler()" type="submit" name="bList" value="Add">➕</button>
+      <!-- cancel button -->
+      <button class="btn cancel-btn" type="button" name="cancel-button" value="Cancel"><a href="/" class="cancel">Cancel</a></button>
+    </form>
+    <script>
+      function newBookHandler() {
+        const inputs = document.querySelectorAll(".add");
+        console.log(inputs[0].value);
+        let emptyInputs = 0;
+        
+        for(let i = 0; i < inputs.length; i++) {
+          if(inputs[i].value === "") {            
+            emptyInputs++
+            console.log(emptyInputs);
+            alert("No form field should be empty! Retry");
+            return false;
+          }
+          window.location.href = "http://localhost:3000/add"
+        }
+      }
+    </script>    
+  </div>
+    <%- include('partials/footer.ejs'); -%>

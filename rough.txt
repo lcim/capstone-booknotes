@@ -1,0 +1,1 @@
+<%= "Read on " + book.read_on.getFullYear() + -book.read_on.getMonth() + -book.read_on.getDate()%> 

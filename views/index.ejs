@@ -1,0 +1,152 @@
+<%- include('partials/header.ejs'); -%>
+
+<!-- display name and heading -->
+  <div class="intro"><h1><%= name %></h1>
+  <h3><%= heading %></h3>
+  <!-- hard code the static component visible to the user -->
+  <p class="summary"><%= "A CRUD app built using Postgres. You can use this link 👉 to" %> 
+  <a href="/add" noreferrer noopener class="open__library">add new book</a> <%= " you have read or use the button and the book cover will be fetched from" %> 
+  <a class="open__library" href="https://openlibrary.org/dev/docs/api/covers" target="_blank" noreferrer, noopener><%= "Open Library website" %> </a> <%= " if it is available; else, a blank cover would be returned. You can also sort the books by" %> 
+  <a class="open__library" href="/sort?recency=readOn" noreferrer, noopener> <%= "recency" %> </a><%= "," %>
+  <a class="open__library" href="/sort?rating=myRating" noreferrer, noopener> <%= "rating" %> </a><%= "or" %>
+  <a class="open__library" href="/sort?author=writer" noreferrer, noopener > <%= "author" %> </a> <br>
+  <button class="btn add__book"><a href="/add" class="add__book_text"noreferrer noopener >+New Book</a></button>
+  </p>  
+</div>
+
+<!-- main container for the books -->
+<div class="container__main">
+  <% for(let book of bookList) { %>
+
+  <!-- form container -->
+  <div class="form__box">
+    <!-- form for edit page -->
+  <form action="/edit" method="post">
+    <div class="form__input">
+    <div id="input<%= book.book_id %>" hidden="true">
+      <input type="hidden" name="editedBookId" value="<%= book.book_id %>" />
+      <div class="form__part1">
+      <br /><label for="edit<%= book.title %>">Title</label>
+      <input
+        id="edit<%= book.title %>"
+        class="input<%= book.book_id %>"
+        type="text"
+        name="editedBookTitle"
+        autocomplete="off"
+        value="<%= book.title %>"
+        hidden="true"
+      />
+      <br /><label for="edit<%= book.author %>">Author</label>
+      <input
+        id="edit<%= book.author %>"
+        class="input<%= book.book_id %>"
+        type="text"
+        name="editedBookAuthor"
+        autocomplete="off"
+        value="<%= book.author %>"
+        hidden="true"
+      />
+      <br /><label for="edit<%= book.rating %>">Rating</label>
+      <input
+        id="edit<%= book.rating %>"
+        class="input<%= book.book_id %>"
+        type="number" step="0.1"
+        max="10"
+        name="editedBookRating"
+        autocomplete="off"
+        value="<%= book.rating %>"
+        hidden="true"
+      />
+      <br /><label for="edit<%= book.dated %>">Date Read</label>
+      <input
+        id="edit<%= book.dated %>"
+        class="input<%= book.book_id %>"
+        type="date"
+        name="editedBookReadOn"
+        autocomplete="off"
+        value="<%= book.dated %>"
+        hidden="true"
+      />
+      </div>
+      <div class="form__part2 edit__textarea">
+      <br /><label for="edit<%= book.descriptions %>">Description</label>
+      <textarea
+        id="edit<%= book.descriptions %>"
+        class="input<%= book.book_id %>"
+        type="text"
+        name="editedBookDescriptions"
+        autocomplete="off"
+        value="<%= book.descriptions %>"
+        hidden="true"
+      >
+        <%= book.descriptions %>
+      </textarea
+      ></div>
+      </div>
+      </div>
+      <!-- hidden edit button that's only visible in edit mode -->
+      <button class="btn btn__edit"type="submit" id="done<%= book.book_id %>" hidden>done✔️</button>    
+  </form>
+  </div>
+
+  <!-- display the book details - the homepage -->
+  <div id="books<%=book.book_id %>">
+
+  <!-- book cover image -->
+    <img class="cover__img" width="126" height="192" src="<%= book.imageurl %>" alt="cover image" />
+
+    <!-- title and author -->
+    <div id="title<%= book.book_id %>">
+      <h2 class="title__author">
+        <%= book.title %> &nbsp;-&nbsp; <span><%= "by " + book.author%></span>
+      </h2>
+
+      <!-- rating and date read -->
+      <div class="rating_and_dated">
+        <div class="dated"><%= "Read on " + book.read_on.toDateString() %></div>
+        <div class="rating"><%= "My Rating: " %><span class="recommendation"><%= book.rating%></span><%= "/10" %></div>
+      </div>         
+      </div>
+
+    <!-- book description -->
+    <div class="book__details"><%= book.descriptions%>
+    </div>
+
+    <div class="delete_form_edit_btn__wrapper">
+      <!-- delete form -->
+    <form action="/delete" method="post">
+    <input
+      type="text"
+      id="del<%= book.book_id %>"
+      onchange="this.form.submit()"
+      name="bookId"
+      value="<%= book.book_id %>" hidden="true"
+    />
+    <input type="button" class="btn delete__btn" name="bookId" onclick="this.form.submit()" value="delete book">
+    </form>
+
+  <!-- edit button -->
+    <button
+    id="edit<%=book.book_id %>"
+    class="edit__btn btn"
+    onclick="handleEdit('<%= book.book_id %>')"
+    >edit✍️</button>
+    </div>
+    </div>
+    <% } %>
+  </div>
+  <!-- edit handler -->
+  <script>
+    function handleEdit(id) {
+      document.getElementById("books" + id).setAttribute("hidden", true);
+      document.getElementById("edit" + id).setAttribute("hidden", true);
+      document.getElementById("done" + id).removeAttribute("hidden");
+      document.getElementById("input" + id).removeAttribute("hidden");
+      const editableInfo = document.getElementsByClassName("input" + id); //.
+      for (let i = 0; i < editableInfo.length; i++) {
+        editableInfo[i].removeAttribute("hidden");
+      }
+    }
+  </script>
+  <%- include('partials/footer.ejs'); -%>
+</div>

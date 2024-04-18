@@ -1,0 +1,224 @@
+body {
+  background-color: #f0fff0;
+  font-size: 1rem;
+  font-family: "Montserrat", sans-serif;padding-block-start: 4rem;
+}
+/* main container for data display excluding the header section*/
+.container__main {
+  padding-inline: 2.5%;
+}
+
+/* The book title and author section  */
+.intro, .heading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin-bottom: 5rem;
+}
+
+/* Introductory hard coded summary of what the app is */
+.intro .summary {
+  max-width: 40em;
+  line-height: 1.7em;
+  padding-inline: 1rem;
+  text-align: left;
+}
+
+/* handle anchor tags in the introductory part */
+.open__library{
+  font-weight: bold;
+}
+.open__library:hover{
+  color: blueviolet;
+}
+
+/* add new book */
+.add__book {
+  background-color: rgb(0, 208, 255);
+  background-color: #00ffaa;
+  float: right;
+}
+.add__book:hover {
+  background-color: #00dd88;
+}
+.add__book_text {
+  text-decoration: none;
+}
+
+/* book title and author */
+.title__author {
+  font-family: Roboto, sans-serif;
+  line-height: 1.6rem;
+  text-transform: uppercase;
+  color: #636363;
+  font-size: 1.1rem;
+  display: flex;
+  flex-wrap: wrap;
+  overflow-wrap: break-word;
+  /* word-break: break-all; */
+  /* white-space: normal; */
+/}
+
+/* rating and date read */
+.rating_and_dated {
+  color: #636636;
+  line-height: 1.7rem;
+  font-style: italic;
+  display: inline;
+  margin-block-end: 1rem;
+}
+
+/* rating text */
+.recommendation{
+  font-weight: bold;
+}
+
+/* book cover image */
+.cover__img {
+  display: block;
+  background-color: chocolate;
+  float: inline-start;
+  /* float: left; */
+  border: 2px solid orange;
+  border-radius: 0.3rem;
+  margin-right: 1rem;
+}
+
+/* book details - description ... */
+.book__details {
+  display: block;
+  margin-block-end: 0.2rem;
+  line-height: 1.6rem;
+}
+
+/* delete form and edit button section */
+.delete_form_edit_btn__wrapper{
+  display: flex;
+  justify-content: space-between;
+  margin-block: 0 4rem;
+}
+
+/* general button */
+.btn{
+  height: 2rem;
+  width: 6rem;
+  font-family: 'Roboto', sans-serif;
+  font-size: 0.9rem;
+  border-radius: 0.8rem;
+  color: #FFF;
+  box-shadow: 0 6px 12px 0 rgba(0, 0, 0, 0.4);
+}
+.edit__btn{
+  background-color: limegreen;
+}
+.edit__btn:hover{
+  background-color: rgb(69, 122, 69);
+}
+.delete__btn{
+  background-color:rgb(129, 58, 70)
+}
+.delete__btn:hover{
+  background-color:orangered;
+}
+
+/* bookList contents display and forms */
+.form__box{
+  width: 100%;height: 100%;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  margin-inline: auto;
+  justify-content: center;
+  align-items: center;
+}
+
+/* edit form */
+.form__input{
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 44rem;
+  justify-content: center;
+  align-items: center;
+  column-gap: 2rem;
+  background-color: #BBFFBB;
+  padding-inline: 2rem;
+  border-radius: 1rem;
+}
+
+/* form part one and two */
+.form__part1, .form__part2{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-block: 2rem;
+}
+
+.form__input input, .form__input textarea {  
+  margin-block: 0.5rem;
+  /* color: orangered;  */
+  height: 2rem;
+  width: 16rem;
+  font-size: 1rem;
+  border-radius: 0.3rem;
+  text-align: center;
+  background-color: #ddffdd;
+}
+
+.form__input textarea{
+  height: 8.5rem;
+  text-align: left;
+}
+
+.edit__textarea textarea{
+  height: 12.5rem;
+}
+
+/* labels for edit form elements */
+.form__input label {
+  margin-block-end: -0.5rem;
+}
+
+/* cancel, edit, and add buttons */
+.cancel-btn, .add-btn, .btn__edit{
+  margin: 2rem 1rem;
+  font-weight: bold;
+}
+.btn__edit{
+  background-color: limegreen;
+}
+.btn__edit:hover {
+  background-color: seagreen;
+}
+
+footer {
+  display: flex;
+  justify-content: center;
+  margin-block: auto 4rem;
+}
+
+@media screen and (min-width: 360px) {
+  .cover__img {
+    margin-right: 2rem;
+  }
+  .rating_and_dated{
+    display: flex; 
+    flex-wrap: wrap;
+    column-gap: 1.5rem;
+    justify-content: space-between;
+  }
+}
+@media screen and (min-width: 768px) {
+  .container__main {
+    padding-inline: 15%;
+  }
+}
+@media screen and (min-width: 1024px) {
+  body {
+    font-size: 15px;
+  }
+  .container__main {
+    padding-inline: 22%;
+  }
+}
