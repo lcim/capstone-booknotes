@@ -16,5 +16,14 @@ values especially the port number during installation, make sure to effect it wi
 
 ## Below is a short video clip on how the app works. Enjoy!
 
-https://github.com/lcim/capstone-booknotes/assets/8688347/853af765-478e-48ab-984d-e43e3bb06580
+https://github.com/lcim/capstone-booknotes/assets/8688347/a59533e3-338f-4356-9a98-8b99007081b8
+
+
+https://github.com/lcim/capstone-booknotes/assets/8688347/825a4d0e-29b7-43c2-86b1-a62423e27b71
+## Part2
+
+
+
+
+https://github.com/lcim/capstone-booknotes/assets/8688347/6bff3e47-bee2-4628-9afc-b1df0b124e25
 
