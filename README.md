@@ -12,7 +12,7 @@ Run the command __*npm install__ in your terminal to install app dependencies*
 From the files downloaded here, run __nodemon ./index.js__ and your app is up and running.
 
 __Note:__ use your password to replace my password in the db settings in index.js file. You may keep other values the same; if you make any change in these
-values especially the port number during installation, make sure to effect it within the file.
+values especially the port number during installation, make sure to effect it within the file. To learn more on PostgreSql visit __[PostgreSql tutorials](https://www.postgresqltutorial.com/)__.
 
 ## Below is a short video clip on how the app works. Enjoy!
 
