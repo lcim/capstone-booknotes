@@ -1,9 +1,9 @@
-# <p style="text-align: center;">BOOKNOTES - A Simple CRUD App </p>
+#              <p style="text-align: center;">BOOKNOTES - A Simple CRUD App with PostgreSql </p>
 
 This app is used to create, read, update and delete records (CRUD) in a PostgreSQL database. The results can be sorted according to __recency, rating or author__.
 
 ## To run this App successfully, 
-One need to install __PostgreSql server__ locally on one's PC. One can download it from **[PostgreSql download link](https://www.postgresql.org/download/)**. 
+One needs to install __PostgreSql server__ locally on one's PC. One can download it from **[PostgreSql download link](https://www.postgresql.org/download/)**. 
 Follow instructions from the website to install it and set up your database.
 
 Next, download __pgAdmin__, a GUI for working with PostgreSql server. __[Download here](https://www.pgadmin.org/download/)__.
