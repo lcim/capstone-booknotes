@@ -74,7 +74,7 @@ app.get("/add", function (req, res) {
 
 // inserts data, including successfully fetched ones from API into db
 app.post("/add", async (req, res) => {
-  // destructures names from http body
+  // destructure names from http body
   const { isbn, author, title, descriptions, rating, read_on } = req.body;
   // fetches book cover
   try {
