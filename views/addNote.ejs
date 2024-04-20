@@ -3,7 +3,7 @@
 <div class="form__box">
   <h3><%= "Add new book" %></h3>
 
-<form action="/add" method="post">
+<form action="/add" method="post" >
       <div class="form__input"> 
         <div class="form__part1">
         <input
@@ -13,6 +13,7 @@
         autocomplete="off"
         placeholder="isbn"
         autofocus="true"
+        required
       />
       <input
       class="add"
@@ -21,6 +22,7 @@
         autocomplete="on"
         placeholder="author"
         autofocus="false"
+        required
       />
       <input
       class="add"
@@ -31,6 +33,7 @@
         autocomplete="off"
         placeholder="rating (0 - 10)"
         autofocus="false"
+        required
       />
       <input
       class="add"
@@ -39,6 +42,7 @@
         autocomplete="off"
         placeholder="date read (yyyy-mm-dd)"
         autofocus="false"
+        required
       />
       </div>
       <div class="form__part2">
@@ -49,6 +53,7 @@
         autocomplete="off"
         placeholder="title"
         autofocus="false"
+        required
       />
       <textarea
       class="add"
@@ -56,27 +61,31 @@
         autocomplete="off"
         placeholder="descriptions"
         autofocus="false"
+        required
       ></textarea>
       </div>
       </div>
       <!-- submit button -->
-      <button id="add-btn" class="btn add-btn" onclick="newBookHandler()" type="submit" name="bList" value="Add">➕</button>
+      <button id="add-btn" class="btn add-btn"  type="submit" name="bList" value="Add">➕</button>
       <!-- cancel button -->
       <button class="btn cancel-btn" type="button" name="cancel-button" value="Cancel"><a href="/" class="cancel">Cancel</a></button>
     </form>
-    <script>
+    <!-- <script>
       function newBookHandler() {
         const inputs = document.querySelectorAll(".add");
         console.log(inputs[0].value);
         
         for(let i = 0; i < inputs.length; i++) {
-          if(inputs[i].value === "") {            
+          // if(inputs[i].value === "") {       
+            // OR     
+          if(inputs[i].value.trim().length === 0) {            
             alert("No form field should be empty! Retry");
             return false;
           }
-          window.location.href = "http://localhost:3000/add"
+          window.location.href = "http://localhost:3000/add";
+          return true
         }
       }
-    </script>    
+    </script>     -->
   </div>
     <%- include('partials/footer.ejs'); -%>
