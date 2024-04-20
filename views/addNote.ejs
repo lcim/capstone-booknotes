@@ -3,7 +3,7 @@
 <div class="form__box">
   <h3><%= "Add new book" %></h3>
 
-<form action="/add" method="post" >
+<form action="/add" method="post" onsubmit="return newBookHandler()">
       <div class="form__input"> 
         <div class="form__part1">
         <input
@@ -70,7 +70,7 @@
       <!-- cancel button -->
       <button class="btn cancel-btn" type="button" name="cancel-button" value="Cancel"><a href="/" class="cancel">Cancel</a></button>
     </form>
-    <!-- <script>
+    <script>
       function newBookHandler() {
         const inputs = document.querySelectorAll(".add");
         console.log(inputs[0].value);
@@ -86,6 +86,6 @@
           return true
         }
       }
-    </script>     -->
+    </script>    
   </div>
     <%- include('partials/footer.ejs'); -%>
