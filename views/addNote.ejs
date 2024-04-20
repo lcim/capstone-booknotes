@@ -68,11 +68,9 @@
       function newBookHandler() {
         const inputs = document.querySelectorAll(".add");
         console.log(inputs[0].value);
-        let emptyInputs = 0;
         
         for(let i = 0; i < inputs.length; i++) {
           if(inputs[i].value === "") {            
-            emptyInputs++
             console.log(emptyInputs);
             alert("No form field should be empty! Retry");
             return false;
